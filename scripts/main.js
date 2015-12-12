@@ -2,7 +2,8 @@ $(function() {
 
   var lastNavElem;
 
-  //load initial page based on the url fragment
+  //load initial page based on the url
+  //fragment if one exists
   var validPages = [
     'home',
     'book',
@@ -15,26 +16,21 @@ $(function() {
   }
   hash = hash.substr(1, hash.length);
   if ($.inArray(hash, validPages) > -1) {
-    initialUrl = 'pages/' + hash + '.html'
+    var pageUrl = 'pages/' + hash + '.html'
+    var currNavElem = $(".page[href='#" + hash + "']");
+    handlePageClick(pageUrl, currNavElem, lastNavElem);
   }
-  var currNavElem = $(".page[href='#" + hash + "']");
-  handlePageClick(initialUrl, currNavElem, lastNavElem);
-  lastNavElem = currNavElem;
 
-  //page event listeners
+  //event listeners
   $('.page').on('click', function() {
     var el = $(this);
     var url = el.data('url');
     handlePageClick(url, el, lastNavElem);
-    lastNavElem = el;
   });
-
-  //page content event listeners
   $('.chapter').on('click', function() {
     var el = $(this);
     var url = el.data('url');
     handlePageClick(url, el, lastNavElem);
-    lastNavElem = el;
   });
 });
 
@@ -55,4 +51,5 @@ function handlePageClick(url, currElem, lastElem) {
   } else {
     chaptersNavElem.removeClass('selected');
   }
+  lastElem = currElem;
 }

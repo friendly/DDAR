@@ -1,11 +1,11 @@
 <?php
-function getNavContentPagesHtml($dir, $webpath) {
+function getNavContentPagesHtml($inDir, $webpath) {
     $html = '';
-    $dir = realpath($dir);
-    if (!$dir) {
-        throw new Exception('Found no content html pages in ' . $dir);
+    $dir = realpath($inDir);
+    if (!$inDir) {
+        throw new Exception('Found no content html pages in ' . $inDir);
     }
-    $re = '/[a-zA-Z]+([0-9]{1,2})\.html/';
+    $re = '/ch([0-9]{1,2})\.html/';
     chdir($dir);
     foreach (glob('*.html') as $filename) {
         $basename = basename($filename);
@@ -13,7 +13,7 @@ function getNavContentPagesHtml($dir, $webpath) {
         if (count($matches) != 2) {
             throw new Exception(
                 'Invalid chapter filename format. ' .
-                'Should be of the format ch01.html with leading zeros'
+                'Should be of the format ch01.html (with leading zeros)'
             );
         } else {
             $html .= '<li><a class="chapter" data-url="' .
