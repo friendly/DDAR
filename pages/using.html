@@ -1,0 +1,72 @@
+<div class="contents">
+<h2 id="using-the-book">Using the book</h2>
+<h3 id="r-packages">R packages</h3>
+<p>There are quite a few R packages used in the book. To prepare your R installation for running <em>all</em> the examples in this book, you can use the following commands to install these packages.</p>
+<pre class="r"><code>packages &lt;- c(&quot;AER&quot;, &quot;ca&quot;, &quot;car&quot;, &quot;colorspace&quot;, &quot;corrplot&quot;, &quot;countreg&quot;, &quot;directlabels&quot;, 
+    &quot;effects&quot;, &quot;ggparallel&quot;, &quot;ggplot2&quot;, &quot;ggtern&quot;, &quot;gmodels&quot;, &quot;gnm&quot;, &quot;gpairs&quot;, 
+    &quot;heplots&quot;, &quot;Lahman&quot;, &quot;lattice&quot;, &quot;lmtest&quot;, &quot;logmult&quot;, &quot;MASS&quot;, &quot;mgcv&quot;, &quot;nnet&quot;, 
+    &quot;plyr&quot;, &quot;pscl&quot;, &quot;RColorBrewer&quot;, &quot;reshape2&quot;, &quot;rms&quot;, &quot;rsm&quot;, &quot;sandwich&quot;, &quot;splines&quot;, 
+    &quot;vcd&quot;, &quot;vcdExtra&quot;, &quot;VGAM&quot;, &quot;xtable&quot;)
+install.packages(packages)</code></pre>
+<p>The <code>countreg</code> package, used in Chapter 11, may not yet be available on <a href="http://cran.r-project.org">CRAN</a>. If not, you can install it from the R-Forge development site.</p>
+<pre class="r"><code># if countreg is not yet on CRAN:
+install.packages(&quot;countreg&quot;, repos=&quot;http://R-Forge.R-project.org&quot;)</code></pre>
+<h3 id="data-sets-by-package">Data sets by package</h3>
+<p>The following lists the data sets used in the book, by package. Links to the data set documentation for <a href="http://cran.r-project.org">CRAN</a> packages are courtesy of <a href="http://www.inside-r.org/" class="uri">http://www.inside-r.org/</a>.</p>
+<dl>
+<dt><strong>AER</strong></dt>
+<dd><a href="http://www.inside-r.org/packages/cran/AER/docs/NMES1988">NMES1988</a>
+</dd>
+<dt><strong>agridat</strong></dt>
+<dd><a href="http://www.inside-r.org/packages/cran/agridat/docs/jansen.strawberry">jansen.strawberry</a>
+</dd>
+<dt><strong>car</strong></dt>
+<dd><a href="http://www.inside-r.org/packages/cran/car/docs/Womenlf">Womenlf</a>
+</dd>
+<dt><strong>countreg</strong></dt>
+<dd>CodParasites, CrabSatellites
+</dd>
+<dt><strong>datasets</strong></dt>
+<dd>HairEyeColor, iris, UCBAdmissions
+</dd>
+<dt><strong>effects</strong></dt>
+<dd><a href="http://www.inside-r.org/packages/cran/effects/docs/Arrests">Arrests</a>
+</dd>
+<dt><strong>HistData</strong></dt>
+<dd><a href="http://www.inside-r.org/packages/cran/HistData/docs/Arbuthnot">Arbuthnot</a>
+</dd>
+<dt><strong>Lahman</strong></dt>
+<dd><a href="http://www.inside-r.org/packages/cran/Lahman/docs/Master">Master</a>
+</dd>
+<dt><strong>logmult</strong></dt>
+<dd><a href="http://www.inside-r.org/packages/cran/logmult/docs/criminal">criminal</a>, <a href="http://www.inside-r.org/packages/cran/logmult/docs/gss8590">gss8590</a>
+</dd>
+<dt><strong>MASS</strong></dt>
+<dd><a href="http://www.inside-r.org/packages/cran/MASS/docs/birthwt">birthwt</a>, <a href="http://www.inside-r.org/packages/cran/MASS/docs/caith">caith</a>
+</dd>
+<dt><strong>Sleuth2</strong></dt>
+<dd><a href="http://www.inside-r.org/packages/cran/Sleuth2/docs/case2201">case2201</a>
+</dd>
+<dt><strong>vcd</strong></dt>
+<dd><a href="http://www.inside-r.org/packages/cran/vcd/docs/Arthritis">Arthritis</a>, <a href="http://www.inside-r.org/packages/cran/vcd/docs/Bundesliga">Bundesliga</a>, <a href="http://www.inside-r.org/packages/cran/vcd/docs/Butterfly">Butterfly</a>, <a href="http://www.inside-r.org/packages/cran/vcd/docs/CoalMiners">CoalMiners</a>, <a href="http://www.inside-r.org/packages/cran/vcd/docs/Employment">Employment</a>, <a href="http://www.inside-r.org/packages/cran/vcd/docs/Federalist">Federalist</a>, <a href="http://www.inside-r.org/packages/cran/vcd/docs/HorseKicks">HorseKicks</a>, <a href="http://www.inside-r.org/packages/cran/vcd/docs/Lifeboats">Lifeboats</a>, <a href="http://www.inside-r.org/packages/cran/vcd/docs/PreSex">PreSex</a>, <a href="http://www.inside-r.org/packages/cran/vcd/docs/Punishment">Punishment</a>, <a href="http://www.inside-r.org/packages/cran/vcd/docs/RepVict">RepVict</a>, <a href="http://www.inside-r.org/packages/cran/vcd/docs/Saxony">Saxony</a>, <a href="http://www.inside-r.org/packages/cran/vcd/docs/SexualFun">SexualFun</a>, <a href="http://www.inside-r.org/packages/cran/vcd/docs/SpaceShuttle">SpaceShuttle</a>, <a href="http://www.inside-r.org/packages/cran/vcd/docs/Suicide">Suicide</a>, <a href="http://www.inside-r.org/packages/cran/vcd/docs/UKSoccer">UKSoccer</a>, <a href="http://www.inside-r.org/packages/cran/vcd/docs/VisualAcuity">VisualAcuity</a>, <a href="http://www.inside-r.org/packages/cran/vcd/docs/WeldonDice">WeldonDice</a>, <a href="http://www.inside-r.org/packages/cran/vcd/docs/WomenQueue">WomenQueue</a>
+</dd>
+<dt><strong>vcdExtra</strong></dt>
+<dd><a href="http://www.inside-r.org/packages/cran/vcdExtra/docs/Abortion">Abortion</a>, <a href="http://www.inside-r.org/packages/cran/vcdExtra/docs/Accident">Accident</a>, <a href="http://www.inside-r.org/packages/cran/vcdExtra/docs/AirCrash">AirCrash</a>, <a href="http://www.inside-r.org/packages/cran/vcdExtra/docs/Caesar">Caesar</a>, <a href="http://www.inside-r.org/packages/cran/vcdExtra/docs/Cormorants">Cormorants</a>, <a href="http://www.inside-r.org/packages/cran/vcdExtra/docs/CyclingDeaths">CyclingDeaths</a>, <a href="http://www.inside-r.org/packages/cran/vcdExtra/docs/DaytonSurvey">DaytonSurvey</a>, <a href="http://www.inside-r.org/packages/cran/vcdExtra/docs/Donner">Donner</a>, <a href="http://www.inside-r.org/packages/cran/vcdExtra/docs/Geissler">Geissler</a>, <a href="http://www.inside-r.org/packages/cran/vcdExtra/docs/Hauser79">Hauser79</a>, <a href="http://www.inside-r.org/packages/cran/vcdExtra/docs/ICU">ICU</a>, <a href="http://www.inside-r.org/packages/cran/vcdExtra/docs/Mammograms">Mammograms</a>, <a href="http://www.inside-r.org/packages/cran/vcdExtra/docs/Mental">Mental</a>, <a href="http://www.inside-r.org/packages/cran/vcdExtra/docs/PhdPubs">PhdPubs</a>, <a href="http://www.inside-r.org/packages/cran/vcdExtra/docs/Toxaemia">Toxaemia</a>, <a href="http://www.inside-r.org/packages/cran/vcdExtra/docs/TV">TV</a>, <a href="http://www.inside-r.org/packages/cran/vcdExtra/docs/Vietnam">Vietnam</a>
+</dd>
+</dl>
+<h3 id="r-code">R code</h3>
+<p>All of the R code from the book is available in the links below for browsing or saving. Alternatively you can get it all in a <a href="Rcode/DDAR-Rcode.zip">zip file</a>.</p>
+<ul>
+<li><a href="Rcode/ch02.R">Chapter 2</a></li>
+<li><a href="Rcode/ch03.R">Chapter 3</a></li>
+<li><a href="Rcode/ch04.R">Chapter 4</a></li>
+<li><a href="Rcode/ch05.R">Chapter 5</a></li>
+<li><a href="Rcode/ch06.R">Chapter 6</a></li>
+<li><a href="Rcode/ch07.R">Chapter 7</a></li>
+<li><a href="Rcode/ch08.R">Chapter 8</a></li>
+<li><a href="Rcode/ch09.R">Chapter 9</a></li>
+<li><a href="Rcode/ch10.R">Chapter 10</a></li>
+<li><a href="Rcode/ch11.R">Chapter 11</a></li>
+<li><a href="Rcode/ch12.R">Chapter 12</a></li>
+</ul>
+</div>

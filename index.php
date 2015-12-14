@@ -44,8 +44,8 @@ require_once 'src/helpers.php';
 					?>
 					</ul>
 				</li>
-				<li><a class="page" data-url="pages/book.html" href="#book">Using the book</a></li>
-				<li><a class="page" data-url="pages/materials.html" href="#materials">Other materials</a></li>
+				<li><a class="page" data-url="pages/using.html" href="#using">Using the book</a></li>
+				<li><a class="page" data-url="pages/other.html" href="#other">Other materials</a></li>
 				<li><a class="page" data-url="pages/authors.html" href="#authors">Authors</a></li>
 			</ul>
 		</div><!-- /.navbar-collapse -->
