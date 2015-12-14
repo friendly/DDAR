@@ -1,3 +1,6 @@
 .DS_Store
 pages/chapters/*
 vendor/
+.Rproj.user
+DDAR.Rproj
+
