@@ -3,4 +3,4 @@ pages/chapters/*
 vendor/
 .Rproj.user
 DDAR.Rproj
-
+pages/**/*.md
