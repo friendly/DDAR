@@ -1,6 +1,8 @@
 .DS_Store
-pages/chapters/*
-vendor/
 .Rproj.user
 DDAR.Rproj
-
+pages/**/*.md
+pages/chapters/*
+scripts/bootstrap/*
+styles/bootstrap/*
+vendor/

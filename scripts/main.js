@@ -4,38 +4,48 @@ $(function() {
 
   //load initial page based on the url
   //fragment if one exists
+  var defaultPage = 'home';
   var validPages = [
     'home',
-    'book',
-    'materials',
+    'using',
+    'other',
     'authors'
   ];
-  var hash = '#home';
+
   if (window.location.hash) {
-    hash = window.location.hash;
+    var page = window.location.hash.substr(1);
   }
-  hash = hash.substr(1, hash.length);
-  if ($.inArray(hash, validPages) > -1) {
-    var pageUrl = 'pages/' + hash + '.html'
-    var currNavElem = $(".page[href='#" + hash + "']");
-    handlePageClick(pageUrl, currNavElem, lastNavElem);
+
+  if ($.inArray(page, validPages) == -1) {
+    page = defaultPage;
   }
+
+  var pageUrl = 'pages/' + page + '.html';
+  var currNavElem = $(".page[href='#" + page + "']");
+  lastNavElem = handlePageClick(pageUrl, currNavElem, lastNavElem);
 
   //event listeners
   $('.page').on('click', function() {
     var el = $(this);
     var url = el.data('url');
-    handlePageClick(url, el, lastNavElem);
+    lastNavElem = handlePageClick(url, el, lastNavElem);
   });
   $('.chapter').on('click', function() {
     var el = $(this);
     var url = el.data('url');
-    handlePageClick(url, el, lastNavElem);
+    lastNavElem = handlePageClick(url, el, lastNavElem);
   });
 });
 
 
-// helper functions
+/**
+ * Handle the page click
+ *
+ * @param {string} url
+ * @param {Element} currElem
+ * @param {?Element} lastElem
+ * @return {Element}
+ */
 function handlePageClick(url, currElem, lastElem) {
   $('.page-content').load(url);
   if (lastElem) {
@@ -43,13 +53,18 @@ function handlePageClick(url, currElem, lastElem) {
   }
   currElem.addClass('selected');
 
-  //special case for content nav element which is a
-  //parent and should also be highlighted
-  var chaptersNavElem = $('.content-page');
-  if (url.indexOf('chapters') > -1) {
-    chaptersNavElem.addClass('selected');
-  } else {
-    chaptersNavElem.removeClass('selected');
+  //if this nav elem is in a dropdown, then we also
+  //need to highlight its parent
+  var currParent = currElem.closest('li.dropdown');
+  if (currParent && currParent.length) {
+    currParent.children().first().addClass('selected');
   }
-  lastElem = currElem;
+  if (lastElem) {
+    var lastParent = lastElem.closest('li.dropdown');
+    if (lastParent && lastParent.length) {
+      lastParent.children().first().removeClass('selected');
+    }
+  }
+
+  return currElem;
 }

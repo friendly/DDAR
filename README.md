@@ -22,6 +22,14 @@ This project requires composer to set up project dependencies
 ```
 curl -sS https://getcomposer.org/installer | php
 composer install
+composer run-script compile
+```
+
+On subsequent updates you should run:
+
+```
+composer update
+composer run-script compile
 ```
 
 ## Site Map ##

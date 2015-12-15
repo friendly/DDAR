@@ -1,5 +1,12 @@
 {
+    "php": ">=5.3.10",
     "require": {
-        "twitter/bootstrap": "^3.3"
+        "twitter/bootstrap": "3.*"
+    },
+    "scripts": {
+        "compile": [
+            "cp vendor/twitter/bootstrap/dist/css/* styles/bootstrap/",
+            "cp vendor/twitter/bootstrap/dist/js/* scripts/bootstrap/"
+        ]
     }
 }

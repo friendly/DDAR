@@ -8,13 +8,13 @@ require_once 'src/helpers.php';
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>DDAR</title>
-	<link rel="stylesheet" href="/vendor/twitter/bootstrap/dist/css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="/vendor/twitter/bootstrap/dist/css/bootstrap-theme.min.css"/>
+	<link rel="stylesheet" href="styles/bootstrap/bootstrap.min.css"/>
+	<link rel="stylesheet" href="styles/bootstrap/bootstrap-theme.min.css"/>
 	<link rel="stylesheet" href="styles/main.css"/>
 	<link rel="stylesheet" href="styles/pages.css"/>
 	<link rel="stylesheet" href="styles/chapters.css"/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="/vendor/twitter/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="scripts/bootstrap/bootstrap.min.js"></script>
 	<script src="scripts/main.js"></script>
 </head>
 <body>
@@ -53,7 +53,7 @@ require_once 'src/helpers.php';
 </nav>
 <div class="container">
 	<div class="row">
-		<div class="col-md-4">
+		<div class="col-md-offset-1 col-md-10">
 			<div class="page-content"></div>
 		</div>
 	</div>
