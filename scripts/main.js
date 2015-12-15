@@ -4,22 +4,25 @@ $(function() {
 
   //load initial page based on the url
   //fragment if one exists
+  var defaultPage = 'home';
   var validPages = [
     'home',
     'using',
     'other',
     'authors'
   ];
-  var hash = '#home';
+
   if (window.location.hash) {
-    hash = window.location.hash;
+    var page = window.location.hash.substr(1);
   }
-  hash = hash.substr(1, hash.length);
-  if ($.inArray(hash, validPages) > -1) {
-    var pageUrl = 'pages/' + hash + '.html'
-    var currNavElem = $(".page[href='#" + hash + "']");
-    handlePageClick(pageUrl, currNavElem, lastNavElem);
+
+  if ($.inArray(page, validPages) == -1) {
+    page = defaultPage;
   }
+
+  var pageUrl = 'pages/' + page + '.html'
+  var currNavElem = $(".page[href='#" + page + "']");
+  handlePageClick(pageUrl, currNavElem, lastNavElem);
 
   //event listeners
   $('.page').on('click', function() {
