@@ -1,8 +1,8 @@
 .DS_Store
 .Rproj.user
 DDAR.Rproj
-pages/**/*.md
-pages/chapters/*
+#pages/**/*.md
+#pages/chapters/*
 scripts/bootstrap/*
 styles/bootstrap/*
 vendor/
