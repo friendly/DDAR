@@ -8,7 +8,7 @@ html, body {
   position: relative;
   margin-bottom: 0;
   background-color: transparent;
-  background: #e2e3e4 url('../images/ddar-banner-med.png') no-repeat left center;
+  background: #e2e3e4 url('../images/ddar-banner-med.png') no-repeat center center;
   background-size: contain;
   min-height: 240px;
 }
@@ -17,12 +17,25 @@ html, body {
   color: #576ea9 !important;
 }
 
+@media (min-width: 768px) {
+  .navbar .navbar-nav {
+	display: inline-block;
+	float: none;
+	vertical-align: top;
+  }
+
+  .navbar .navbar-collapse {
+	text-align: center;
+  }
+}
+
+
 /* iphone 6+ portrait and landscape */
 @media only screen
 and (min-width : 414px)
 and (max-width : 736px) {
   .jumbotron {
-    min-height: 180px;
+	min-height: 180px;
   }
 }
 
@@ -31,7 +44,6 @@ and (max-width : 736px) {
 and (min-width : 320px)
 and (max-width : 568px) {
   .jumbotron {
-    min-height: 160px;
+	min-height: 160px;
   }
-
 }
