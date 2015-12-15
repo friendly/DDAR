@@ -14,7 +14,7 @@ require_once 'src/helpers.php';
 	<link rel="stylesheet" href="styles/pages.css"/>
 	<link rel="stylesheet" href="styles/chapters.css"/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="/vendor/twitter/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="/vendor/twitter/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="scripts/main.js"></script>
 </head>
 <body>
