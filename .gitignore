@@ -7,3 +7,5 @@ scripts/bootstrap/*
 styles/bootstrap/*
 vendor/
 .Rhistory
+*.bak
+
