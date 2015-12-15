@@ -6,8 +6,8 @@ $(function() {
   //fragment if one exists
   var validPages = [
     'home',
-    'book',
-    'materials',
+    'using',
+    'other',
     'authors'
   ];
   var hash = '#home';
