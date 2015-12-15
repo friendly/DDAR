@@ -8,9 +8,9 @@ html, body {
   position: relative;
   margin-bottom: 0;
   background-color: transparent;
-  background: #e2e3e4 url('../images/ddar-banner-med.png') no-repeat center center;
-  background-size: contain;
-  min-height: 240px;
+  background: #e2e3e4 url('../images/ddar-banner-full.png') 50% 50% no-repeat;
+  background-size: cover;
+  min-height: 175px;
 }
 
 .nav a.selected {
@@ -32,18 +32,9 @@ html, body {
 
 /* iphone 6+ portrait and landscape */
 @media only screen
-and (min-width : 414px)
+and (min-width : 0px)
 and (max-width : 736px) {
   .jumbotron {
-	min-height: 180px;
-  }
-}
-
-/* iphone 5/5s portrait and landscape */
-@media only screen
-and (min-width : 320px)
-and (max-width : 568px) {
-  .jumbotron {
-	min-height: 160px;
+	min-height: 150px;
   }
 }
