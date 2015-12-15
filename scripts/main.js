@@ -20,7 +20,7 @@ $(function() {
     page = defaultPage;
   }
 
-  var pageUrl = 'pages/' + page + '.html'
+  var pageUrl = 'pages/' + page + '.html';
   var currNavElem = $(".page[href='#" + page + "']");
   lastNavElem = handlePageClick(pageUrl, currNavElem, lastNavElem);
 
