@@ -1,4 +1,5 @@
 <?php
+require_once 'src/router.php';
 require_once 'src/helpers.php';
 ?>
 <!DOCTYPE html>
@@ -8,14 +9,14 @@ require_once 'src/helpers.php';
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>DDAR</title>
-	<link rel="stylesheet" href="styles/bootstrap/bootstrap.min.css"/>
-	<link rel="stylesheet" href="styles/bootstrap/bootstrap-theme.min.css"/>
-	<link rel="stylesheet" href="styles/main.css"/>
-	<link rel="stylesheet" href="styles/pages.css"/>
-	<link rel="stylesheet" href="styles/chapters.css"/>
+	<link rel="stylesheet" href="/styles/bootstrap/bootstrap.min.css"/>
+	<link rel="stylesheet" href="/styles/bootstrap/bootstrap-theme.min.css"/>
+	<link rel="stylesheet" href="/styles/main.css"/>
+	<link rel="stylesheet" href="/styles/pages.css"/>
+	<link rel="stylesheet" href="/styles/chapters.css"/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="scripts/bootstrap/bootstrap.min.js"></script>
-	<script src="scripts/main.js"></script>
+	<script src="/scripts/bootstrap/bootstrap.min.js"></script>
+	<script src="/scripts/main.js"></script>
 </head>
 <body>
 <div class="jumbotron">
@@ -33,20 +34,19 @@ require_once 'src/helpers.php';
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li><a class="page" data-url="pages/home.html" href="#home">Home</a></li>
+				<li><a class="page" href="/pages/home">Home</a></li>
 				<li class="dropdown">
 					<a href="#" class="content-page dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Content<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 					<?php
-                        $webpath = 'pages/chapters';
-						$dir = realpath(__DIR__ . '/' . $webpath);
-						echo getNavContentPagesHtml($dir, $webpath);
+                        $path = 'pages/chapters';
+						echo getChapterPageNavHtml($path);
 					?>
 					</ul>
 				</li>
-				<li><a class="page" data-url="pages/using.html" href="#using">Using the book</a></li>
-				<li><a class="page" data-url="pages/other.html" href="#other">Other materials</a></li>
-				<li><a class="page" data-url="pages/authors.html" href="#authors">Authors</a></li>
+				<li><a class="page" href="/pages/using">Using the book</a></li>
+				<li><a class="page" href="/pages/other">Other materials</a></li>
+				<li><a class="page" href="/pages/authors">Authors</a></li>
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->
@@ -54,7 +54,9 @@ require_once 'src/helpers.php';
 <div class="container">
 	<div class="row">
 		<div class="col-md-offset-1 col-md-10">
-			<div class="page-content"></div>
+			<div class="page-content">
+				<?php echo $content; ?>
+			</div>
 		</div>
 	</div>
 </div>
