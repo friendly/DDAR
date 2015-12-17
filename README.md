@@ -111,13 +111,6 @@ styles.
 This page has been designed to set up the scaffolding for the site and
 dynamically add nav items and page content.
 
-The index.php page will also remember what page the user was on. For instance,
-if the user hits the reload button on a particular page, the index.php will
-load that page (i.e. /#home, will load the home page).  The way it does this
-is by adding a url fragment to the url (i.e. #home).  There is a hard coded
-list of valid page fragments in scripts/main.js file that will also need to
-be updated.
-
 ### Chapter pages ###
 
 `/pages/chapters/*.html`
@@ -125,7 +118,7 @@ be updated.
 The idea here is that you will continue to render the chapter files from
 markdown using whatever process you have in place. The only caveat is that the
 rendered .html files should ideally not contain `<html>`, `<head>`, or
-`<body>` tags. They should just contain the markup inside the `<body>` tag.
+`<body>` tags. They should only contain the markup inside the `<body>` tag.
 
 You just need to add chapter pages to the `pages/chapters/` directory and the
 site navigation will scale accordingly. Since the navigation looks to this
