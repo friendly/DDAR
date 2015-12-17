@@ -3,7 +3,9 @@
 $(function() {
   // highlight the selected nav item
   var pathname = window.location.pathname;
-  if (pathname == '/') {
+  // strip trailing slash
+  pathname = pathname.replace(/\/$/,'');
+  if (!pathname.length) {
     pathname = '/pages/home';
   }
   $('a.page').each(function(index) {
