@@ -3,7 +3,7 @@ Development for Discrete Data Analysis with R web site
 
 ## Requirements ##
 
-PHP 5.4 or greater
+PHP 5.3.10 or greater (5.4 is better)
 Web server (e.g. Apache/Nginx)
 
 ## Overview ##
@@ -15,12 +15,18 @@ for use on mobile devices.
 
 ## Installation ##
 
-This project requires composer to set up project dependencies
+This project requires `composer` to set up project dependencies
 
 [https://getcomposer.org/](https://getcomposer.org/)
 
+* Download:
 ```
-curl -sS https://getcomposer.org/installer | php
+curl -sS https://getcomposer.org/installer | php -- --filename=composer
+```
+
+`composer` is then executable (by php) in the current directory. `run-script compile` copies files
+to `{styles,scripts}/bootstrap`.
+```
 composer install
 composer run-script compile
 ```
