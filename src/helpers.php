@@ -1,25 +1,36 @@
 <?php
-function getNavContentPagesHtml($inDir, $webpath) {
-    $html = '';
-    $dir = realpath($inDir);
-    if (!$inDir) {
-        throw new Exception('Found no content html pages in ' . $inDir);
-    }
-    $re = '/ch([0-9]{1,2})\.html/';
-    chdir($dir);
-    foreach (glob('*.html') as $filename) {
-        $basename = basename($filename);
+/**
+ * Build the chapter navigation sub pages
+ * @param string $path
+ * @return string
+ */
+function getChapterPageNavHtml($path) {
+    $objects = new RecursiveIteratorIterator(
+        new RecursiveDirectoryIterator($path),
+        RecursiveIteratorIterator::SELF_FIRST
+    );
+    $items = array();
+    foreach ($objects as $o) {
+        $filename = $o->getFileName();
+        $re = '/ch([0-9]{1,2})\.html/';
         preg_match($re, $filename, $matches);
-        if (count($matches) != 2) {
-            throw new Exception(
-                'Invalid chapter filename format. ' .
-                'Should be of the format ch01.html (with leading zeros)'
-            );
-        } else {
-            $html .= '<li><a class="chapter" data-url="' .
-                     $webpath . '/' .$filename  . '" href="#">Chapter ' .
-                     $matches[1] . '</a></li>';
+        if (count($matches) == 2) {
+            $filename = basename($filename, '.html');
+            $filepath = $path . '/' . $filename;
+            $items[$matches[1]] = $filepath;
         }
+    }
+    ksort($items);
+    $html = '';
+    foreach ($items as $k=>$v) {
+        $html .=
+            '<li>' .
+            '<a class="page chapter"' .
+            ' href="/' . $v  . '">' .
+            'Chapter ' . $k .
+            '</a>' .
+            '</li>' . PHP_EOL;
+
     }
     return $html;
 }
