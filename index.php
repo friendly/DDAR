@@ -53,10 +53,8 @@ require_once 'src/helpers.php';
 </nav>
 <div class="container">
 	<div class="row">
-		<div class="col-md-offset-1 col-md-10">
-			<div class="page-content">
-				<?php echo $content; ?>
-			</div>
+		<div class="page-content col-md-offset-1 col-md-10">
+			<?php echo $content; ?>
 		</div>
 	</div>
 </div>
