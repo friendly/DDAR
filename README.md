@@ -4,6 +4,7 @@ Development for Discrete Data Analysis with R web site
 ## Requirements ##
 
 PHP 5.3.10 or greater (5.4 is better)
+
 Web server (e.g. Apache/Nginx)
 
 ## Overview ##
