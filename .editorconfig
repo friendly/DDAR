@@ -4,24 +4,18 @@ root = true
 [*]
 charset = utf-8
 end_of_line = lf
-indent_size = 4
+indent_size = 2
 indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-[**.js]
-indent_style = space
-indent_size = 2
-
 [**.less]
 indent_style = tab
-indent_size = 2
-tab_width = 4
+indent_size = 4
 
 [**.css]
 indent_style = tab
-indent_size = 2
-tab_width = 4
+indent_size = 4
 
 [**.php]
 indent_style = space
@@ -29,5 +23,4 @@ indent_size = 4
 
 [**.html]
 indent_style = tab
-indent_size = 2
-tab_width = 4
+indent_size = 4
