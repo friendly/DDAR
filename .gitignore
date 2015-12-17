@@ -1,11 +1,9 @@
+*.bak
+*.sh
 .DS_Store
+.Rhistory
 .Rproj.user
 DDAR.Rproj
-#pages/**/*.md
-#pages/chapters/*
 scripts/bootstrap/*
 styles/bootstrap/*
 vendor/
-.Rhistory
-*.bak
-
