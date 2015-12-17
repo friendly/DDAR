@@ -16,6 +16,13 @@ for use on mobile devices.
 
 ## Installation ##
 
+### Directory permissions ###
+
+After checking out the web site codebase, please make the `/scripts/bootstrap`
+and `/styles/bootstrap` directories writable by the web server.
+
+### Composer package dependencies ###
+
 This project requires `composer` to set up project dependencies
 
 [https://getcomposer.org/](https://getcomposer.org/)
@@ -27,6 +34,7 @@ curl -sS https://getcomposer.org/installer | php -- --filename=composer
 
 `composer` is then executable (by php) in the current directory. `run-script compile` copies files
 to `{styles,scripts}/bootstrap`.
+
 ```
 composer install
 composer run-script compile
