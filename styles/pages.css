@@ -3,3 +3,7 @@
 .media img {
   border: 1px solid #e3e3e3;
 }
+
+.error-template {
+  text-align: center;
+}
