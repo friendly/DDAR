@@ -1,5 +1,6 @@
 *.bak
 *.sh
+*~
 .DS_Store
 .Rhistory
 .Rproj.user
