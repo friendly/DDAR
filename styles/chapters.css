@@ -1,2 +1,6 @@
 /* css styles for chapters */
 
+.chapterprelude {
+	color: navy;
+	font: italic;
+}
