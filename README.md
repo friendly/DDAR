@@ -3,23 +3,25 @@ Development for Discrete Data Analysis with R web site
 
 ## Requirements ##
 
-PHP 5.3.10 or greater (5.4 is better)
+PHP 5.3.10 or greater (5.4+ preferred)
 
 Web server (e.g. Apache/Nginx)
 
 ## Overview ##
 
-This is a super-simple custom php/html framework. The layout uses Bootstrap to
-form the basis for a responsive web site that will scale seemlessly from
-desktop to mobile. A mobile widths, the nav collapses into a drop down suitable
-for use on mobile devices.
+This is a super-simple custom php/html framework. The routing uses
+[http://altorouter.com](AltoRouter), a small but powerful routing class, and
+Bootstrap as the basis for a responsive web site that will scale seemlessly
+from desktop to mobile. At mobile widths, the nav collapses into a drop down
+suitable for use on mobile devices.
 
 ## Installation ##
 
 ### Directory permissions ###
 
-After checking out the web site codebase, please make the `/scripts/bootstrap`
-and `/styles/bootstrap` directories writable by the web server.
+After installing the web site codebase, please make both the
+`/scripts/bootstrap` and `/styles/bootstrap` directories writable by the web
+server.
 
 ### Composer package dependencies ###
 
@@ -27,29 +29,51 @@ This project requires `composer` to set up project dependencies
 
 [https://getcomposer.org/](https://getcomposer.org/)
 
-* Download:
+* To install composer:
 ```
 curl -sS https://getcomposer.org/installer | php -- --filename=composer
 ```
 
-`composer` is then executable (by php) in the current directory. `run-script compile` copies files
-to `{styles,scripts}/bootstrap`.
+`composer` is then executable (by php) in the current directory.
 
 ```
 composer install
 composer run-script compile
 ```
 
-On subsequent updates you should run:
+`run-script compile` copies Bootstrap files to `{styles,scripts}/bootstrap`.
+
+
+On future project updates you should always run:
 
 ```
 composer update
 composer run-script compile
 ```
+### Environment variables ###
+
+You will need to create a `.env` file in the project's root directory with
+the following environment variable:
+
+```
+BASEPATH="/"
+```
+
+If you are serving this project from a subdirectory of the website's root,
+you can change the above to point to that location, i.e.
+
+```
+BASEPATH="/subdirectory"
+```
+
+*Important:* Do not include a trailing slash if you are declaring a sub directory.
+
+*Note:* If you are serving images in .html files, you will need to manually update
+their paths to be relative to the sub directory.
 
 ## Site Map ##
 
-This site is made up of the following files:
+This site is made up of the following initial files:
 
 ```
 - index.php
@@ -110,6 +134,10 @@ styles.
 
 This page has been designed to set up the scaffolding for the site and
 dynamically add nav items and page content.
+
+*Note:* All static files in the index.php file, are served via a `urlfor` helper
+function. If you plan on adding any files or pages, you will need to use this
+helper as well.
 
 ### Chapter pages ###
 
