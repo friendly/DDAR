@@ -5,7 +5,7 @@ Development for the **Discrete Data Analysis with R** web site
 
 PHP 5.3.10 or greater (5.4+ preferred)
 
-Web server (e.g. Apache/Nginx)
+Web server (e.g. Apache)
 
 ## Overview ##
 
@@ -20,17 +20,20 @@ to serve and loads it in place inside an outer html wrapper page.
 
 ### Apache Web Server ###
 
-As desribed above, all URLS are router to the `index.php` file. Apache needs
+As described above, all URLs are routed to the `index.php` file. Apache needs
 a few things in place to make this happen:
 
-First, you will need to allow url rewriting in your Apache `httpd.conf` file. 
-Uncomment the line that resembles the following:
+1) First, you will need to enable **url rewriting** in your Apache `httpd.conf` file.
 
-``` apacheconf LoadModule rewrite_module libexec/apache2/mod_rewrite.so ```
+Uncomment the `rewrite_module` line as follows:
 
-If you are using `<VirtualHost>` directives to define your web sites, 
-make sure it looks like the following. Note, the `<Directory>` block. This
-allows the project to defined an `.htaccess` file.
+``` LoadModule rewrite_module libexec/apache2/mod_rewrite.so ```
+
+2) If you are using a ``` <VirtualHost>``` directive to define your web site, make
+sure it resembles the following.
+
+*Note*, the ``` <Directory>``` block. This allows the project to define an 
+`.htaccess` file that sets up URL rewriting.
 
 ``` apacheconf
 <VirtualHost *:80>
@@ -44,8 +47,8 @@ allows the project to defined an `.htaccess` file.
 ```
 
 If you are not using a virtual host file and are serving a single
-web site, then look for the `<Directory>` block in Apache's `httpd.conf` file, 
-and update as follows:
+web site, then look for the ``` apacheconf <Directory>``` block in Apache's
+`httpd.conf` file. Update as follows:
 
 ``` apacheconf
 AllowOverride All
@@ -54,30 +57,8 @@ Options FollowSymLinks
 
 ### Directory permissions ###
 
-After installing the website, please make both the `/scripts/bootstrap` 
+After installing the website, please make both the `/scripts/bootstrap`
 and `/styles/bootstrap` directories writable by the web server.
-
-## Environment variables ##
-
-You will need to create a `.env` file in the project's root directory with
-the following environment variable:
-
-```
-BASEPATH="/"
-```
-
-If you are serving this project from a subdirectory of the website's root,
-you can change the above to point to the location of the subdirectory from the
-web root, i.e.
-
-```
-BASEPATH="/subdirectory"
-```
-
-**Important:** Do not include a trailing slash if you are declaring a sub directory.
-
-**Note:** If you are serving images in .html files, you will need to manually update
-their paths to be relative to the sub directory.
 
 ## Composer package dependencies ##
 
@@ -88,7 +69,7 @@ their paths to be relative to the sub directory.
 - [DotEnv](https://github.com/vlucas/phpdotenv)
 
 
-This project requires [Composer](https://getcomposer.org/) to set up 
+This project requires [Composer](https://getcomposer.org/) to set up
 project dependencies.
 
 ### To install composer: ###
@@ -117,14 +98,40 @@ composer update
 composer run-script compile
 ```
 
-**Note:** `run-script compile` copies Bootstrap files to 
+**Note:** `run-script compile` copies Bootstrap files to
 `{styles,scripts}/bootstrap`.
+
+
+## Environment variable ##
+
+You will need to create a `.env` file in the project's root directory with
+the following environment variable that defines which sub directory your
+site lives in.
+
+The following example defined the site being served from the root directory.
+
+```
+BASEPATH="/"
+```
+
+If you are serving this project from a subdirectory of the website's root,
+change the above to point to the location of the subdirectory from the
+web root, i.e.
+
+```
+BASEPATH="/subdirectory"
+```
+
+**Important:** Do not include a trailing slash if you are declaring a sub directory.
+
+**Note:** If you are serving images in .html files, you will need to manually update
+their paths to be relative to the sub directory.
 
 ## Site Map ##
 
 This site is made up of the following initial files:
 
-``` 
+```
 - index.php
 - images/
 - pages/
@@ -143,9 +150,9 @@ This site is made up of the following initial files:
 ## Explanation of files ##
 
 `index.php` is the main framework entry point. Think of this as a very basic
-controller in the model-view-controller pattern. index.php handles the setup of
-the html document, including the navigation and dynamic inclusion of the pages
-and chapters.
+controller in the model-view-controller pattern. `index.php` handles the setup 
+of the html document, including the navigation and dynamic inclusion of the 
+pages and chapters.
 
 `images/` directory contains the global site images
 
@@ -155,24 +162,24 @@ hard-coded into the nav in the index.php page. So adding any new pages will
 require you to add them to the index.php navigation markup.
 
 `pages/chapters/` directory contains the chapter files. This part of the
-navigation is dynamically generated by the index.php file. When listing
-chapters, the index.php script scans the 'pages/chapters/' directory and looks
-for any files of the form (eg) `ch01.html` and then adds that to the chapter
-list in the drop down menu.
+navigation is dynamically generated by the `index.php` file. When listing
+chapters, the `index.php` script scans the `pages/chapters/` directory and 
+looks for any files of the form (e.g.) `ch01.html` and then adds that to the 
+chapter list in the drop down menu.
 
 `pages/chapters/ch01/` directory is where you would store all the images and
-assets for the ch01.html file. Ideally you would keep assets for the chapters
-contained in this way so that there would be a 'ch01.html' file and its
-corresponding 'ch01/' directory where its assets would live.
+assets for the `ch01.html` file. Ideally you would keep assets for the 
+chapters contained in this way so that there would be a `ch01.html` file 
+and its corresponding `ch01/` directory where its assets would live.
 
 `scripts/` directory contains the global site scripts
 
 `src/` directory contains any php libraries or helper functions used in the
 index.php page
 
-`styles/` directory contains a 'main.css' file which is used for the global
-styles. It also contains a 'page.css' file where you should put page-specific
-css styles, and a 'chapters.css' file where you should put chapter-specific css
+`styles/` directory contains a `main.css` file which is used for the global
+styles. It also contains a `page.css` file where you should put page-specific
+css styles, and a `chapters.css` file where you should put chapter-specific css
 styles.
 
 ## Usage ##
@@ -185,8 +192,10 @@ This page has been designed to set up the scaffolding for the site and
 dynamically add nav items and page content.
 
 **Note:** All static files in the index.php file, are served via a `urlfor` helper
-function. If you plan on adding any files or pages, you will need to use this
-helper as well.
+function. This helper sets the basepath for any scripts or pages linked to from
+the `index.php` page.
+
+If you plan on adding any files or pages, you will need to use this helper as well.
 
 ### Chapter pages ###
 
@@ -205,8 +214,8 @@ automatically.
 ### Styles and Markup ###
 
 You can change the markup of any of the pages to suit. Keep in mind that since
-this site uses the Bookstrap framework, you should use Bootstrap markup and
-classes whereever possible. Its not imperative that you do, but highly
+this site uses the Bootstrap framework, you should use Bootstrap markup and
+classes wherever possible. Its not imperative that you do, but highly
 suggested since using the Bootstrap styles will keep the content responsive.
 
 See this link for details:
