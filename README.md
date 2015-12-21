@@ -110,7 +110,7 @@ site lives in.
 
 The following example defined the site being served from the root directory.
 
-```
+``` bash
 BASEPATH="/"
 ```
 
@@ -118,7 +118,7 @@ If you are serving this project from a subdirectory of the website's root,
 change the above to point to the location of the subdirectory from the
 web root, i.e.
 
-```
+``` bash
 BASEPATH="/subdirectory"
 ```
 
