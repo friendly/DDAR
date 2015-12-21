@@ -4,6 +4,7 @@
 .DS_Store
 .Rhistory
 .Rproj.user
+.env
 DDAR.Rproj
 scripts/bootstrap/*
 styles/bootstrap/*
