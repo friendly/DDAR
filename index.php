@@ -1,7 +1,7 @@
 <?php
 require 'vendor/autoload.php';
-require_once 'src/router.php';
-require_once 'src/helpers.php';
+require 'src/router.php';
+require 'src/helpers.php';
 $dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
 $router = new DDARRouter(basepath());
