@@ -4,11 +4,11 @@
  * @return string
  */
 function basepath() {
-    $basepath = getenv('BASEPATH');
-    if (!$basepath) {
+    $path = getenv('BASEPATH');
+    if (empty($path)) {
         return '';
     }
-    return rtrim($basepath, '/');
+    return rtrim($path, '/');
 }
 
 /**

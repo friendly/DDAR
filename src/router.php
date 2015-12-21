@@ -1,6 +1,5 @@
 <?php
 require 'vendor/autoload.php';
-require_once 'src/helpers.php';
 
 /**
  * A custom router built on top of AltoRouter
