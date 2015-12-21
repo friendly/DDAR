@@ -1,10 +1,11 @@
 <?php
 require 'vendor/autoload.php';
-$dotenv = new Dotenv\Dotenv(__DIR__);
-$dotenv->load();
-$basepath = getenv('BASEPATH');
 require_once 'src/router.php';
 require_once 'src/helpers.php';
+$dotenv = new Dotenv\Dotenv(__DIR__);
+$dotenv->load();
+$router = new DDARRouter(basepath());
+$router->load();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +23,7 @@ require_once 'src/helpers.php';
     <script src="<?php echo urlfor('/scripts/bootstrap/bootstrap.min.js'); ?>"></script>
     <script src="<?php echo urlfor('/scripts/main.js'); ?>"></script>
 </head>
-<body data-basepath="<?php echo $basepath; ?>">
+<body data-basepath="<?php echo $router->getBasepath(); ?>">
 <div class="jumbotron">
     <div class="container"></div>
 </div>
@@ -58,7 +59,7 @@ require_once 'src/helpers.php';
 <div class="container">
     <div class="row">
         <div class="page-content col-md-offset-1 col-md-10">
-            <?php echo $content; ?>
+            <?php echo $router->match(); ?>
         </div>
     </div>
 </div>

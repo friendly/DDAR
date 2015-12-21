@@ -4,7 +4,11 @@
  * @return string
  */
 function basepath() {
-    return rtrim(getenv('BASEPATH'), '/');
+    $basepath = getenv('BASEPATH');
+    if (!$basepath) {
+        return '';
+    }
+    return rtrim($basepath, '/');
 }
 
 /**
@@ -14,26 +18,6 @@ function basepath() {
  */
 function urlfor($path) {
     return basepath() . $path;
-}
-
-/**
- * Get the selected page's content
- * @param object $match
- * @return string
- */
-function getPageContent($match) {
-    $params = $match['params'];
-    $path = rtrim($params['path'], '/');
-
-    if (empty($path)) { //home
-        $page = 'pages/home.html';
-    } else {
-        $page = $path . '.html';
-        if (!is_file($page)) { //error
-            $page = 'pages/error.html';
-        }
-    }
-    return file_get_contents($page);
 }
 
 /**
