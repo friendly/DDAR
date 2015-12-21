@@ -2,8 +2,12 @@
 require 'vendor/autoload.php';
 require 'src/router.php';
 require 'src/helpers.php';
-$dotenv = new Dotenv\Dotenv(__DIR__);
-$dotenv->load();
+try {
+    $dotenv = new Dotenv\Dotenv(__DIR__);
+    $dotenv->load();
+} catch(Exception $e) {
+    //assumes sys ENV instead
+}
 $router = new DDARRouter(basepath());
 $router->load();
 ?>
