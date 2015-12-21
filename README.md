@@ -9,84 +9,55 @@ Web server (e.g. Apache/Nginx)
 
 ## Overview ##
 
-This is a super-simple custom php/html framework. The routing uses
-[AltoRouter](http://altorouter.com), a small but powerful routing class, and
-[Bootstrap](http://getbootstrap.com/) as the basis for a responsive web site
-that will scale seemlessly from desktop to mobile. At mobile widths, the nav
-collapses into a drop down suitable for use on mobile devices.
+This is a simple custom php/html framework. A high-level overview of how it works,
+as follows:
+
+- All site URLs are routed to the `index.php` file.
+- Based on the URL's path, the routing mechanism determines which static .html files
+to serve and loads it in place inside an outer html wrapper page.
 
 ## Installation ##
 
-### .htaccess (Apache) ###
+### Apache Web Server ###
 
-The project serves all paths to the root's index.php file. As such there is
-an .htaccess file in the project root that sets up the rewriting.
-The file should contain the following:
+As desribed above, all URLS are router to the `index.php` file. Apache needs
+a few things in place to make this happen:
 
-```
-RewriteEngine on
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule . index.php [L]
-```
+First, you will need to allow url rewriting in your Apache `httpd.conf` file. 
+Uncomment the line that resembles the following:
 
-### .conf (Nginx) ###
+``` apacheconf LoadModule rewrite_module libexec/apache2/mod_rewrite.so ```
 
-Some special considerations need to be made for serving files from Nginx.
-Please make sure your project's .conf file has the following location
-directive:
+If you are using `<VirtualHost>` directives to define your web sites, 
+make sure it looks like the following. Note, the `<Directory>` block. This
+allows the project to defined an `.htaccess` file.
 
-For a project being served from the web root:
-
-```
-location / {
-	try_files $uri /index.php;
-}
-
+``` apacheconf
+<VirtualHost *:80>
+	DocumentRoot "/path/to/your/web/directory"
+	ServerName web
+	<Directory "/path/to/your/web/directory">
+		AllowOverride All
+		Options FollowSymLinks
+	</Directory>
+</VirtualHost>
 ```
 
-For a project served from a sub-directory:
+If you are not using a virtual host file and are serving a single
+web site, then look for the `<Directory>` block in Apache's `httpd.conf` file, 
+and update as follows:
 
-```
-location /subdir {
-	try_files $uri /subdir/index.php;
-}
+``` apacheconf
+AllowOverride All
+Options FollowSymLinks
 ```
 
 ### Directory permissions ###
 
-After installing the web site codebase, please make both the
-`/scripts/bootstrap` and `/styles/bootstrap` directories writable by the web
-server.
+After installing the website, please make both the `/scripts/bootstrap` 
+and `/styles/bootstrap` directories writable by the web server.
 
-### Composer package dependencies ###
-
-This project requires `composer` to set up project dependencies
-
-[https://getcomposer.org/](https://getcomposer.org/)
-
-#### To install composer: ####
-
-```
-curl -sS https://getcomposer.org/installer | php -- --filename=composer
-```
-
-`composer` is then executable (by php) in the current directory.
-
-```
-composer install
-composer run-script compile
-```
-
-`run-script compile` copies Bootstrap files to `{styles,scripts}/bootstrap`.
-
-
-On future project updates you should always run:
-
-```
-composer update
-composer run-script compile
-```
-### Environment variables ###
+## Environment variables ##
 
 You will need to create a `.env` file in the project's root directory with
 the following environment variable:
@@ -108,11 +79,52 @@ BASEPATH="/subdirectory"
 **Note:** If you are serving images in .html files, you will need to manually update
 their paths to be relative to the sub directory.
 
+## Composer package dependencies ##
+
+### External Libraries ###
+
+- [AltoRouter](http://altorouter.com)
+- [Bootstrap](http://getbootstrap.com/)
+- [DotEnv](https://github.com/vlucas/phpdotenv)
+
+
+This project requires [Composer](https://getcomposer.org/) to set up 
+project dependencies.
+
+### To install composer: ###
+
+``` bash
+curl -sS https://getcomposer.org/installer | php -- --filename=composer
+```
+
+`composer` is then executable (by php) in the current directory.
+
+#### On project installation ####
+
+Run the following composer commands to install the dependencies:
+
+``` bash
+composer install
+composer run-script compile
+```
+
+#### On project updates ####
+
+Run the following composer commands to update the dependencies:
+
+``` bash
+composer update
+composer run-script compile
+```
+
+**Note:** `run-script compile` copies Bootstrap files to 
+`{styles,scripts}/bootstrap`.
+
 ## Site Map ##
 
 This site is made up of the following initial files:
 
-```
+``` 
 - index.php
 - images/
 - pages/
