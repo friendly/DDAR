@@ -1,5 +1,5 @@
 # DDAR
-Development for Discrete Data Analysis with R web site
+Development for the **Discrete Data Analysis with R** web site
 
 ## Requirements ##
 
@@ -10,12 +10,47 @@ Web server (e.g. Apache/Nginx)
 ## Overview ##
 
 This is a super-simple custom php/html framework. The routing uses
-[http://altorouter.com](AltoRouter), a small but powerful routing class, and
-Bootstrap as the basis for a responsive web site that will scale seemlessly
-from desktop to mobile. At mobile widths, the nav collapses into a drop down
-suitable for use on mobile devices.
+[AltoRouter](http://altorouter.com), a small but powerful routing class, and
+[Bootstrap](http://getbootstrap.com/) as the basis for a responsive web site
+that will scale seemlessly from desktop to mobile. At mobile widths, the nav
+collapses into a drop down suitable for use on mobile devices.
 
 ## Installation ##
+
+### .htaccess (Apache) ###
+
+The project serves all paths to the root's index.php file. As such there is
+an .htaccess file in the project root that sets up the rewriting.
+The file should contain the following:
+
+```
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . index.php [L]
+```
+
+### .conf (Nginx) ###
+
+Some special considerations need to be made for serving files from Nginx.
+Please make sure your project's .conf file has the following location
+directive:
+
+For a project being served from the web root:
+
+```
+location / {
+	try_files $uri /index.php;
+}
+
+```
+
+For a project served from a sub-directory:
+
+```
+location /subdir {
+	try_files $uri /subdir/index.php;
+}
+```
 
 ### Directory permissions ###
 
@@ -29,7 +64,8 @@ This project requires `composer` to set up project dependencies
 
 [https://getcomposer.org/](https://getcomposer.org/)
 
-* To install composer:
+#### To install composer: ####
+
 ```
 curl -sS https://getcomposer.org/installer | php -- --filename=composer
 ```
@@ -60,15 +96,16 @@ BASEPATH="/"
 ```
 
 If you are serving this project from a subdirectory of the website's root,
-you can change the above to point to that location, i.e.
+you can change the above to point to the location of the subdirectory from the
+web root, i.e.
 
 ```
 BASEPATH="/subdirectory"
 ```
 
-*Important:* Do not include a trailing slash if you are declaring a sub directory.
+**Important:** Do not include a trailing slash if you are declaring a sub directory.
 
-*Note:* If you are serving images in .html files, you will need to manually update
+**Note:** If you are serving images in .html files, you will need to manually update
 their paths to be relative to the sub directory.
 
 ## Site Map ##
@@ -135,7 +172,7 @@ styles.
 This page has been designed to set up the scaffolding for the site and
 dynamically add nav items and page content.
 
-*Note:* All static files in the index.php file, are served via a `urlfor` helper
+**Note:** All static files in the index.php file, are served via a `urlfor` helper
 function. If you plan on adding any files or pages, you will need to use this
 helper as well.
 
