@@ -44,6 +44,7 @@ function renderChapterNavigation($path) {
     ksort($items);
     $html = '';
     foreach ($items as $num=>$href) {
+        $href = basepath() . $href;
         $html .=
             '<li>' .
             '<a class="page chapter"' .
