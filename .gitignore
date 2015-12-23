@@ -5,6 +5,7 @@
 .Rhistory
 .Rproj.user
 .env
+.htaccess
 DDAR.Rproj
 scripts/bootstrap/*
 styles/bootstrap/*
