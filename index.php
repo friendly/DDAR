@@ -62,7 +62,7 @@ $router->load();
 </nav>
 <div class="container">
     <div class="row">
-        <div class="page-content col-md-offset-1 col-md-10">
+        <div class="page-content col-md-12">
             <?php echo $router->match(); ?>
         </div>
     </div>

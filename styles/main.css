@@ -31,11 +31,34 @@ html, body {
 }
 
 
-/* iphone 6+ portrait and landscape */
 @media only screen
 and (min-width : 0px)
-and (max-width : 736px) {
+and (max-width : 735px) {
 	.jumbotron {
 		min-height: 150px;
+	}
+}
+@media only screen
+and (min-width : 1185px) {
+	.jumbotron {
+		min-height: 200px;
+	}
+}
+@media only screen
+and (min-width : 1635px) {
+	.jumbotron {
+		min-height: 225px;
+	}
+}
+@media only screen
+and (min-width : 2085px) {
+	.jumbotron {
+		min-height: 250px;
+	}
+}
+@media only screen
+and (min-width : 2530px) {
+	.jumbotron {
+		min-height: 280px;
 	}
 }
