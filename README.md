@@ -150,13 +150,14 @@ This site is made up of the following initial files:
 - index.php
 - images/
 - pages/
-	- authors.html
-	- book.html
-	- home.html
-	- materials.html
-	- chapters/
+  - chapters/
 		- ch01.html
 		- ch01/
+	- authors.html
+	- error.html
+	- home.html
+	- other.html
+	- using.html
 - scripts/
 - src/
 - styles/
