@@ -53,7 +53,14 @@ $router->load();
                     ?>
                     </ul>
                 </li>
-                <li><a class="page" href="<?php echo urlfor('/pages/using'); ?>">Using the book</a></li>
+                <li class="dropdown">
+                    <a href="#" class="content-page dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Using<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                    <li><a class="page" href="<?php echo urlfor('/pages/using'); ?>#r-packages">R Packages</a></li>
+                    <li><a class="page" href="<?php echo urlfor('/pages/using'); ?>#data-sets-by-package">Data Sets by Package</a></li>
+                    <li><a class="page" href="<?php echo urlfor('/pages/using'); ?>#r-code">R Code</a></li>
+                    </ul>
+                </li>
                 <li><a class="page" href="<?php echo urlfor('/pages/other'); ?>">Other materials</a></li>
                 <li><a class="page" href="<?php echo urlfor('/pages/authors'); ?>">Authors</a></li>
             </ul>
