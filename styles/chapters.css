@@ -2,5 +2,10 @@
 
 .chapterprelude {
 	color: navy;
-	font: italic;
+	font-style: italic;
+}
+
+.chaptoc {
+	color: navy;
+	font-style: normal;
 }
