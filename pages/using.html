@@ -2,12 +2,14 @@
 <h2 id="using-the-book">Using the book</h2>
 <h3 id="r-packages">R packages</h3>
 <p>There are quite a few R packages used in the book. To prepare your R installation for running <em>all</em> the examples in this book, you can use the following commands to install these packages.</p>
-<pre class="r"><code>packages &lt;- c(&quot;AER&quot;, &quot;ca&quot;, &quot;car&quot;, &quot;colorspace&quot;, &quot;corrplot&quot;, &quot;countreg&quot;, &quot;directlabels&quot;,
-	&quot;effects&quot;, &quot;ggparallel&quot;, &quot;ggplot2&quot;, &quot;ggtern&quot;, &quot;gmodels&quot;, &quot;gnm&quot;, &quot;gpairs&quot;,
-	&quot;heplots&quot;, &quot;Lahman&quot;, &quot;lattice&quot;, &quot;lmtest&quot;, &quot;logmult&quot;, &quot;MASS&quot;, &quot;mgcv&quot;, &quot;nnet&quot;,
-	&quot;plyr&quot;, &quot;pscl&quot;, &quot;RColorBrewer&quot;, &quot;reshape2&quot;, &quot;rms&quot;, &quot;rsm&quot;, &quot;sandwich&quot;, &quot;splines&quot;,
-	&quot;vcd&quot;, &quot;vcdExtra&quot;, &quot;VGAM&quot;, &quot;xtable&quot;)
-install.packages(packages)</code></pre>
+<pre class="r"><code>packages <- c("AER", "ca", "car", "colorspace", "corrplot", "countreg", "directlabels",
+	"effects", "ggparallel", "ggplot2", "ggtern", "gmodels", "gnm", "gpairs",
+	"heplots", "Lahman", "lattice", "lmtest", "logmult", "MASS", "mgcv", "nnet",
+	"plyr", "pscl", "RColorBrewer", "reshape2", "rms", "rsm", "sandwich", "splines",
+	"vcd", "vcdExtra", "VGAM", "xtable")
+install.packages(packages)
+</code></pre>
+
 <p>The <code>countreg</code> package, used in Chapter 11, may not yet be available on <a href="http://cran.r-project.org">CRAN</a>. If not, you can install it from the R-Forge development site.</p>
 <pre class="r"><code># if countreg is not yet on CRAN:
 install.packages(&quot;countreg&quot;, repos=&quot;http://R-Forge.R-project.org&quot;)</code></pre>
