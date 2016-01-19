@@ -7,3 +7,13 @@
 .error-template {
 	text-align: center;
 }
+
+/* for dataset list */
+.dl-horizontal dt {
+	width: 90px;
+	white-space: normal;
+}
+
+.dl-horizontal dd {
+	margin-left: 110px;
+}
