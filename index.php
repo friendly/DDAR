@@ -20,11 +20,13 @@ $router->load();
     <title>DDAR</title>
     <link rel="stylesheet" href="<?php echo urlfor('/styles/bootstrap/bootstrap.min.css'); ?>"/>
     <link rel="stylesheet" href="<?php echo urlfor('/styles/bootstrap/bootstrap-theme.min.css'); ?>"/>
+    <link rel="stylesheet" href="<?php echo urlfor('/styles/fancybox/jquery.fancybox.css?v=2.1.5'); ?>" />
     <link rel="stylesheet" href="<?php echo urlfor('/styles/main.css'); ?>"/>
     <link rel="stylesheet" href="<?php echo urlfor('/styles/pages.css'); ?>"/>
     <link rel="stylesheet" href="<?php echo urlfor('/styles/chapters.css'); ?>"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="<?php echo urlfor('/scripts/bootstrap/bootstrap.min.js'); ?>"></script>
+    <script src="<?php echo urlfor('/scripts/fancybox/jquery.fancybox.js?v=2.1.5'); ?>"></script>
     <script src="<?php echo urlfor('/scripts/main.js'); ?>"></script>
 </head>
 <body data-basepath="<?php echo $router->getBasepath(); ?>">

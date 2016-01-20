@@ -20,4 +20,7 @@ $(function() {
       }
     }
   });
+
+  // init fancybox
+  $(".fancybox").fancybox();
 });
