@@ -1,6 +1,7 @@
-### 1. Introduction
-### 1.2. What is categorical data?
-### 1.2.1. Case form vs. frequency form
+### SECTION ### 1. Introduction
+### SECTION ### 1.2. What is categorical data?
+
+### SECTION ### 1.2.1. Case form vs. frequency form
 
 ## First lines of Arthritis data
 data("Arthritis", package = "vcd")
@@ -9,15 +10,15 @@ head(Arthritis, 5)
 ## Arthritis data in frequency form
 as.data.frame(xtabs(~ Treatment + Sex + Improved, data = Arthritis))
 
-### 1.2.3. Univariate, bivariate, and multivariate data
+### SECTION ### 1.2.3. Univariate, bivariate, and multivariate data
 
 ## Arthritis data for Treatment and Improved
 
 as.data.frame(xtabs(~ Treatment + Improved, data = Arthritis))
 
-### 1.3. Strategies for categorical data analysis
+### SECTION ### 1.3. Strategies for categorical data analysis
 
-### 1.3.1. Hypothesis testing approaches
+### SECTION ### 1.3.1. Hypothesis testing approaches
 
 ## Hair and Eye color data
 library(vcd)
@@ -36,7 +37,7 @@ plot(ca(HairEye), main="Hair Color and Eye Color")
 title(xlab="Dimension 1 (89.4%)", ylab="Dimension 2 (9.5%)")
 par(op)
 
-### 1.3.2. Model-building approaches
+### SECTION ### 1.3.2. Model-building approaches
 
 ## Figure 1.2.: Space shuttle O-ring failure, observed and predicted probabilities.
 data("SpaceShuttle", package="vcd")
@@ -104,9 +105,10 @@ ggplot(Donner, aes(age, survived)) + theme_bw() +
   geom_point(position = position_jitter(height = 0.02, width = 0)) +
     stat_smooth(method = "loess", span=0.9, color="red", fill="red", alpha = 0.2, size=2, na.rm=TRUE) + ylim(0,1)
 
-### 1.4. Graphical methods for categorical data
-### 1.4.3. Effect ordering and rendering for data display
- 
+### SECTION ### 1.4. Graphical methods for categorical data
+
+### SECTION ### 1.4.3. Effect ordering and rendering for data display
+
 ## Figure 1.11.: Parallel coordinates plots of the Iris data. Left: Default variable order; right: Variables ordered to make the pattern of correlations more coherent.
 library(lattice)
 data("iris", package="datasets")
@@ -128,7 +130,7 @@ parallelplot(~iris[c(1,3,4,2)], data=iris, groups = Species,
   horizontal.axis = FALSE, lwd=8,
   col=c(rgb(1,0,0,.2), rgb(0,0,1,.2), rgb(0,205/255,0,.2) ))
 
-### 1.4.6. Data plots, model plots, and data+model plots
+### SECTION ### 1.4.6. Data plots, model plots, and data+model plots
 
 ## Figure 1.15.: Qualitative color palette for the HSV (left) and HCL (right) spaces.
 library(colorspace)

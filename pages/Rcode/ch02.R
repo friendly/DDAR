@@ -1,7 +1,7 @@
-### 2. Working with Categorical Data
-### 2.1. Working with R data: vectors, matrices, arrays, and data frames
+### SECTION ### 2. Working with Categorical Data
+### SECTION ### 2.1. Working with R data: vectors, matrices, arrays, and data frames
 
-### 2.1.1. Vectors
+### SECTION ### 2.1.1. Vectors
 
 library(vcdExtra)
 
@@ -23,7 +23,7 @@ seq(0, 1, length.out = 11)     # give length
 (sex <- rep(c("female", "male"), length.out = 4))  # same
 (passed <- rep(c(TRUE, FALSE), each = 2))
 
-### 2.1.2. Matrices
+### SECTION ### 2.1.2. Matrices
 
 ## creating matrices
 (matA <- matrix(1:8, nrow = 2, ncol = 4))
@@ -53,7 +53,7 @@ t(matA)
 ## calculations with matrices
 2 * matA / 100
 
-### 2.1.3. Arrays
+### SECTION ### 2.1.3. Arrays
 
 ## creating arrays
 dims <-  c(2, 4, 2)
@@ -69,7 +69,7 @@ dimnames(arrayA) <- list(sex = c("M", "F"),
 arrayA
 str(arrayA)
 
-### 2.1.4. data frames
+### SECTION ### 2.1.4. data frames
 
 ## creating data frames
 set.seed(12345)   # reproducibility
@@ -102,9 +102,9 @@ levels(Arthritis$Improved)
 Arthritis$Improved <- ordered(Arthritis$Improved,
                               levels = c("None", "Some", "Marked"))
 
-### 2.2. Forms of categorical data: case form, frequency form, and table form
+### SECTION ### 2.2. Forms of categorical data: case form, frequency form, and table form
 
-### 2.2.1. Case Form
+### SECTION ### 2.2.1. Case Form
 
 ## Example 2.2.: Arthritis Treatment
 
@@ -126,7 +126,7 @@ names(GSS)
 str(GSS)
 sum(GSS$count)
 
-### 2.2.3. Table form
+### SECTION ### 2.2.3. Table form
 
 ## Example 2.4.: Hair and Eye color
 data("HairEyeColor", package = "datasets")    # load the data
@@ -159,7 +159,7 @@ dimnames(JobSat) <-
 JobSat <- as.table(JobSat)
 JobSat
 
-### 2.3. Ordered factors and reordered tables
+### SECTION ### 2.3. Ordered factors and reordered tables
 
 ## Assigning numeric values as labels
 dimnames(JobSat)$income <- c(7.5, 20, 32.5, 60)
@@ -184,7 +184,7 @@ dimnames(UCB)$Admit <- c("Yes", "No")
 names(dimnames(UCB)) <- c("Sex", "Admitted", "Department")
 str(UCB)
 
-### 2.4. Generating tables with table() and xtabs()
+### SECTION ### 2.4. Generating tables with table() and xtabs()
 
 ## Creating sample data
 set.seed(12345)   # reproducibility
@@ -195,7 +195,7 @@ sex <- factor(sample(c("M", "F"), n, replace = TRUE))
 age <- round(rnorm(n, mean = 30, sd = 5))
 mydata <- data.frame(A, B, sex, age)
 
-### 2.4.1. table()
+### SECTION ### 2.4.1. table()
 
 ## Creating a 2-Way Frequency Table
 table(mydata$A, mydata$B)           # A will be rows, B will be columns
@@ -217,7 +217,7 @@ prop.table(mytab, 2)     # column proportions
 mytab <- table(mydata[,c("A", "B", "sex")])
 ftable(mytab)
 
-### 2.4.2. xtabs()
+### SECTION ### 2.4.2. xtabs()
 
 ## 3-Way Frequency Table
 mytable <- xtabs(~ A + B + sex, data = mydata)
@@ -228,9 +228,9 @@ summary(mytable)   # chi-squared test of independence
 (GSStab <- xtabs(count ~ sex + party, data = GSS))
 summary(GSStab)
 
-### 2.5. Printing tables with structable() and ftable()
+### SECTION ### 2.5. Printing tables with structable() and ftable()
 
-### 2.5.1. Text output
+### SECTION ### 2.5.1. Text output
 
 ## ftable()
  ftable(UCB)                      # default
@@ -242,9 +242,9 @@ library(vcd)
 structable(HairEyeColor)                   # show the table: default
 structable(Hair + Sex ~ Eye, HairEyeColor) # specify col ~ row variables
 
-### 2.6. Subsetting data
+### SECTION ### 2.6. Subsetting data
 
-### 2.6.1. Subsetting tables
+### SECTION ### 2.6.1. Subsetting tables
 
 ## Extracting female data from HairEyeColor data
 HairEyeColor[,,"Female"]
@@ -256,7 +256,7 @@ apply(HairEyeColor, 3, sum)
 ## Subsetting with more than one level
 HairEyeColor[c("Black", "Brown"), c("Hazel", "Green"),]
 
-### 2.6.2. Subsetting structables
+### SECTION ### 2.6.2. Subsetting structables
 
 hec <- structable(Eye ~ Sex + Hair, data = HairEyeColor)
 hec
@@ -266,7 +266,7 @@ hec[["Male",]]
 ## Subsetting with more than one level
 hec[[c("Male", "Brown"),]]
 
-### 2.6.3. Subsetting data frames
+### SECTION ### 2.6.3. Subsetting data frames
 
 ## subsetting using indexes
 rows <- Arthritis$Sex == "Female" & Arthritis$Age > 68
@@ -281,9 +281,9 @@ subset(Arthritis, Sex == "Female" & Age > 68,
 subset(Arthritis, Sex == "Female" & Age > 68,
        select = -c(Age, ID))
 
-### 2.7. Collapsing tables
+### SECTION ### 2.7. Collapsing tables
 
-### 2.7.1. Collapsing over factor tables
+### SECTION ### 2.7.1. Collapsing over factor tables
 
 ## Example 2.6.: Dayton survey
 data("DaytonSurvey", package = "vcdExtra")
@@ -311,7 +311,7 @@ library(plyr)
 Dayton_ACM_df <- ddply(DaytonSurvey, .(cigarette, alcohol, marijuana),
                        summarise, Freq = sum(Freq))
 
-### 2.7.2. Collapsing table levels
+### SECTION ### 2.7.2. Collapsing table levels
 
 ## Example 2.8.: Collapsing categories
 
@@ -333,9 +333,9 @@ tab2 <- collapse.table(tab1,
          education = c("<high", "<high", "high"))
 structable(tab2)
 
-### 2.8. Converting among frequency tables and data frames
+### SECTION ### 2.8. Converting among frequency tables and data frames
 
-### 2.8.1. Table form to frequency form
+### SECTION ### 2.8.1. Table form to frequency form
 
 ## Example 2.9.: General social survey
 as.data.frame(GSStab)
@@ -352,21 +352,21 @@ horse.df
 ## ... and applying weighted.mean()
 weighted.mean(horse.df$nDeaths, weights=horse.df$Freq)
 
-### 2.8.2. Case form to table form
+### SECTION ### 2.8.2. Case form to table form
 
 ## Example 2.11. Arthritis treatment
 Art.tab <- table(Arthritis[,c("Treatment", "Sex", "Improved")])
 str(Art.tab)
 ftable(Art.tab)
 
-### 2.8.3. Table form to case form
+### SECTION ### 2.8.3. Table form to case form
 
 ## Example 2.12.: Arthritis treatment
 library(vcdExtra)
 Art.df <- expand.dft(Art.tab)
 str(Art.df)
 
-### 2.8.4. Publishing tables to LaTeX or HTML
+### SECTION ### 2.8.4. Publishing tables to LaTeX or HTML
 
 ## the horsekicks data
 data("HorseKicks", package = "vcd")
@@ -392,9 +392,9 @@ horsetab <- xtable(horsetab, digits = 0, label="tab:xtable5",
      )
 print(horsetab, include.colnames=FALSE, caption.placement="top")
 
-### 2.9. A complex example: TV viewing data
+### SECTION ### 2.9. A complex example: TV viewing data
 
-### 2.9.1. Creating data frames and arrays
+### SECTION ### 2.9.1. Creating data frames and arrays
 
 ## reading in the data
 tv_data <- read.table(system.file("doc", "extdata", "tv.dat",
@@ -436,7 +436,7 @@ dimnames(TV) <-
          Network = c("ABC", "CBS", "NBC", "Fox", "Other"),
          State = c("Off", "Switch", "Persist"))
 
-### 2.9.2. Subsetting and collapsing
+### SECTION ### 2.9.2. Subsetting and collapsing
 
 ## subsetting data
 TV <- TV[,,1:3,]     # keep only ABC, CBS, NBC
